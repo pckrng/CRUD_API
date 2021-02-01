@@ -11,9 +11,17 @@ const users = [
 ]
 
 router.get('/', (req, res) => {
-    console.log(users);
 
     res.send(users);
+});
+
+router.post('/', (req, res) => {
+
+    const user = req.body;
+
+    users.push(user);
+
+    res.send(`User ${user.firstName} has been added!`);
 });
 
 export default router;
